@@ -40,3 +40,126 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here "], ["created_at", "2021-03-26 00:32:21.344504"], ["updated_at", "2021-03-26 00:32:21.344504"]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/" for ::1 at 2021-03-26 15:49:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (2.6ms)
+Completed 200 OK in 13ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2021-03-26 15:49:31 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 305ms (Views: 298.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/posts" for ::1 at 2021-03-26 15:49:58 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NP4VxDU+yc38O5n8vYunw7mNOzsCzLT0D1nkQc7rYv0mEDY58a6VsUZvs6bh5pvJuxWG9RrgkmlIphEvigXIwA==", "title"=>"New Title ", "description"=>"New Desc ", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "New Title "], ["description", "New Desc "], ["created_at", "2021-03-26 19:49:58.050707"], ["updated_at", "2021-03-26 19:49:58.050707"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/posts_controller.rb:21:in `create'
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.2ms)
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (1.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started POST "/posts" for ::1 at 2021-03-26 16:03:27 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NP4VxDU+yc38O5n8vYunw7mNOzsCzLT0D1nkQc7rYv0mEDY58a6VsUZvs6bh5pvJuxWG9RrgkmlIphEvigXIwA==", "title"=>"My post title ", "description"=>"My post description", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "My post title "], ["description", "My post description"], ["created_at", "2021-03-26 20:03:27.548078"], ["updated_at", "2021-03-26 20:03:27.548078"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/posts_controller.rb:21:in `create'
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.6ms)
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/" for ::1 at 2021-03-26 16:54:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (2.7ms)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2021-03-26 16:54:38 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 182ms (Views: 176.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/posts" for ::1 at 2021-03-26 16:54:51 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3fXPkMWNJG9OBJlD6hr5dMN9nfsrxSdeqFpwRp5k3JbPG+xtAR14E/RQsxm2d8V+weUgNTPpAcPvpYUo2op2qw==", "title"=>"test 2", "description"=>"desc 2", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test 2"], ["description", "desc 2"], ["created_at", "2021-03-26 20:54:51.894576"], ["updated_at", "2021-03-26 20:54:51.894576"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/posts_controller.rb:21:in `create'
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/dougjones/.rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.5ms)
+Started POST "/posts" for ::1 at 2021-03-26 17:11:52 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3fXPkMWNJG9OBJlD6hr5dMN9nfsrxSdeqFpwRp5k3JbPG+xtAR14E/RQsxm2d8V+weUgNTPpAcPvpYUo2op2qw==", "title"=>"test 2", "description"=>"desc 2", "commit"=>"Submit Post"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test 2"], ["description", "desc 2"], ["created_at", "2021-03-26 21:11:52.931293"], ["updated_at", "2021-03-26 21:11:52.931293"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/6
+Completed 302 Found in 9ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/posts/6" for ::1 at 2021-03-26 17:11:52 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
